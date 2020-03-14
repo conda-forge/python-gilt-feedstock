@@ -1,5 +1,5 @@
 {% set name = "python-gilt" %}
-{% set version = "1.2.1" %}
+{% set version = "1.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e23a45a6905e6bb7aec3ff7652b48309933a6991fad4546d9e793ac7e0513f8a
+  sha256: 812daf3ca98d92764f3116f2b5a6874b07adaacec361614bd2fcecef5f2f94f0
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - gilt = gilt.shell:main
 requirements:
@@ -34,7 +34,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'gilt - A GIT layering tool.'
+  summary: gilt - A GIT layering tool.
   description: |
     Overlay remote repositories and/or files into the destinations
     provided.
