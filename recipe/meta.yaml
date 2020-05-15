@@ -22,8 +22,14 @@ requirements:
     - setuptools
     - pbr
   run:
+    - click
+    - colorama
+    - fasteners
+    - git-url-parse
     - pbr
     - python
+    - pyyaml
+    - sh
 
 test:
   requires:
