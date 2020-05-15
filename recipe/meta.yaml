@@ -26,8 +26,12 @@ requirements:
     - python
 
 test:
+  requires:
+    - pip
   imports:
     - gilt
+  commands:
+    - pip check
 
 about:
   home: https://github.com/metacloud/gilt
