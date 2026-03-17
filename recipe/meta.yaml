@@ -6,18 +6,18 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 812daf3ca98d92764f3116f2b5a6874b07adaacec361614bd2fcecef5f2f94f0
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - gilt = gilt.shell:main
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
     - setuptools
     - pbr
@@ -27,13 +27,14 @@ requirements:
     - fasteners
     - git-url-parse
     - pbr
-    - python
+    - python >={{ python_min }}
     - pyyaml
     - sh
 
 test:
   requires:
     - pip
+    - python {{ python_min }}
   imports:
     - gilt
   commands:
